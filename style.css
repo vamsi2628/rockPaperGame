@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+  margin: 20px;
+  padding: 0px;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+#mode {
+  padding: 10px;
+  font-size: xx-large;
+}
+.gestures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 50px;
+  gap: 0px;
+}
+.gestures button {
+  padding: 10px;
+}
+.gestures button:hover {
+  cursor: pointer;
+  background-color: rgb(96, 206, 206);
+  border-radius: 20%;
+}
+.gestures-items {
+  text-align: center;
+}
+.Score-Card {
+  text-align: center;
+}
+.Score-Card-h3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.Score-Card div {
+  padding: 30px;
+}
+
+@media screen and (max-width: 400px) {
+  * {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .gestures img,
+  button,
+  div {
+    margin: 0px;
+  }
+  .Score-Card h2,
+  h3 {
+    margin: 0px;
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Rock Paper Scissors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+  </head>
+  <body class="body">
+    <h1>
+      Rock Paper Scissors
+      <span><button id="mode" onclick="modeChange('mode')">🌚</button></span>
+    </h1>
+
+    <div class="gestures">
+      <div class="gestures-items">
+        <img src="/images/Rock.gif" alt="Rock" width="100%" />
+        <button class="choice" id="Rock" onclick="handleClick('Rock')">
+          Rock
+        </button>
+      </div>
+      <div class="gestures-items">
+        <img src="/images/Paper.gif" alt="paper" width="100%" />
+        <button class="choice" id="Paper" onclick="handleClick('Paper')">
+          Paper
+        </button>
+      </div>
+      <div class="gestures-items">
+        <img src="/images/Scissors.gif" alt="Scissors" width="100%" />
+        <button class="choice" id="Scissors" onclick="handleClick('Scissors')">
+          Scissors
+        </button>
+      </div>
+    </div>
+    <div class="Score-Card">
+      <h1>Score Card</h1>
+      <div class="Score-Card-h3">
+        <h2 id="user-score">0</h2>
+        <h2 id="comp-score">0</h2>
+        <h3>User Score</h3>
+        <h3>Computer Score</h3>
+      </div>
+      <div id="msg">Play Your Move</div>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>
