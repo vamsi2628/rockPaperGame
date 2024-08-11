@@ -49,12 +49,12 @@
 }
 
 .front.user {
-  background-image: url("images/user.png");
+  background-image: url("./images/user.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
 .front.comp {
-  background-image: url("images/computer.png");
+  background-image: url("./images/computer.png");
   background-size: contain;
   background-repeat: no-repeat;
 }

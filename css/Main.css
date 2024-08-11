@@ -34,7 +34,7 @@
 /* Header */
 
 .header h4 {
-  background: url("images/header.jpeg") 50% 50%;
+  background: url("./images/header.jpeg") 50% 50%;
   background-size: cover;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
