@@ -13,7 +13,8 @@ const genCompChoice = () => {
 
 const drawGame = () => {
   msg.innerText = "Game was Draw. Play again.";
-  msg.style.backgroundColor = "#7bd6fb";
+  msg.style.backgroundColor = "#c1885a";
+  msg.style.color = "black";
 };
 
 const showWinner = (userWin, userChoice, compChoice) => {
@@ -21,12 +22,14 @@ const showWinner = (userWin, userChoice, compChoice) => {
     userScore++;
     userScorePara.innerHTML = userScore;
     msg.innerHTML = `You win! Your ${userChoice} beats ${compChoice}`;
-    msg.style.backgroundColor = "green";
+    msg.style.backgroundColor = "#9fa9a9";
+    msg.style.color = "black";
   } else {
     compScore++;
     compScorePara.innerHTML = compScore;
     msg.innerHTML = `You lost. ${compChoice} beats your ${userChoice}`;
-    msg.style.backgroundColor = "red";
+    msg.style.backgroundColor = "#f0e6b1";
+    msg.style.color = "black";
   }
 };
 
@@ -58,17 +61,17 @@ function handleClick(choice) {
   playGame(userChoice);
 }
 
-function modeChange() {
-  const val = document.querySelector(".body");
-  const mode = document.getElementById("mode").innerText;
-  const value1 = document.getElementById("mode");
-  if (mode == "🌚") {
-    val.style.backgroundColor = "black";
-    val.style.color = "white";
-    value1.innerText = "🌞";
-  } else {
-    val.style.backgroundColor = "white";
-    val.style.color = "black";
-    value1.innerText = "🌚";
-  }
-}
+// function modeChange() {
+//   const val = document.querySelector(".body");
+//   const mode = document.getElementById("mode").innerText;
+//   const value1 = document.getElementById("mode");
+//   if (mode == "🌚") {
+//     val.style.backgroundColor = "black";
+//     val.style.color = "white";
+//     value1.innerText = "🌞";
+//   } else {
+//     val.style.backgroundColor = "white";
+//     val.style.color = "black";
+//     value1.innerText = "🌚";
+//   }
+// }

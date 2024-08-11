@@ -1,48 +1,138 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Rock Paper Scissors</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>loading</title>
+    <link rel="stylesheet" href="./css/loading.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/Main.css" />
+    <link rel="stylesheet" href="./css/card.css" />
   </head>
   <body class="body">
-    <h1>
-      Rock Paper Scissors
-      <span><button id="mode" onclick="modeChange('mode')">🌚</button></span>
-    </h1>
-
-    <div class="gestures">
-      <div class="gestures-items">
-        <img src="./images/Rock.gif" alt="Rock" width="100%" />
-        <button class="choice" id="Rock" onclick="handleClick('Rock')">
-          Rock
-        </button>
-      </div>
-      <div class="gestures-items">
-        <img src="./images/Paper.gif" alt="paper" width="100%" />
-        <button class="choice" id="Paper" onclick="handleClick('Paper')">
-          Paper
-        </button>
-      </div>
-      <div class="gestures-items">
-        <img src="./images/Scissors.gif" alt="Scissors" width="100%" />
-        <button class="choice" id="Scissors" onclick="handleClick('Scissors')">
-          Scissors
-        </button>
+    <!-- Loading -->
+    <div class="intro">
+      <div class="loading">
+        <span class="title">ROCK PAPER SCISSORS</span><br /><br />
+        <span class="logo">L</span><span class="logo">o</span
+        ><span class="logo">a</span><span class="logo">d</span
+        ><span class="logo">i</span><span class="logo">n</span
+        ><span class="logo">g</span><span class="logo">.</span
+        ><span class="logo">.</span><span class="logo">.</span>
+        <img src="./images/loading.gif" width="10%" />
       </div>
     </div>
-    <div class="Score-Card">
-      <h1>Score Card</h1>
-      <div class="Score-Card-h3">
-        <h2 id="user-score">0</h2>
-        <h2 id="comp-score">0</h2>
-        <h3>User Score</h3>
-        <h3>Computer Score</h3>
+
+    <!-- Main page -->
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
+        <h4>ROCK PAPER SCISSORS</h4>
+        <button id="logout">Logout</button>
+      </div>
+      <!-- Gestures -->
+      <div class="gestures">
+        <div class="gestures-items">
+          <img src="./images/Rock.gif" alt="Rock" width="100%" />
+          <button class="choice" id="Rock" onclick="handleClick('Rock')">
+            Rock
+          </button>
+        </div>
+        <div class="gestures-items">
+          <img src="./images/Paper.gif" alt="paper" width="100%" />
+          <button class="choice" id="Paper" onclick="handleClick('Paper')">
+            Paper
+          </button>
+        </div>
+        <div class="gestures-items">
+          <img src="./images/Scissors.gif" alt="Scissors" width="100%" />
+          <button
+            class="choice"
+            id="Scissors"
+            onclick="handleClick('Scissors')"
+          >
+            Scissors
+          </button>
+        </div>
+      </div>
+      <!-- ScoreCard -->
+
+      <h1 class="title1">Score Card</h1>
+      <div class="overall">
+        <div class="Score-Card">
+          <div class="card user">
+            <div class="front user"></div>
+            <div class="back user">
+              <h3>User Score:</h3>
+              <h2 id="user-score">0</h2>
+            </div>
+          </div>
+        </div>
+        <div class="Score-Card">
+          <div class="card comp">
+            <div class="front comp"></div>
+            <div class="back comp">
+              <h3>Computer Score:</h3>
+              <h2 id="comp-score">0</h2>
+            </div>
+          </div>
+        </div>
       </div>
       <div id="msg">Play Your Move</div>
     </div>
   </body>
-  <script src="index.js"></script>
+  <script src="./js/Main.js"></script>
+  <script src="./js/loading.js"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAlYHGyeKU5Qh4pltigfF9G-9_s3Mg94Ko",
+      authDomain: "rockpaperscissor-c9518.firebaseapp.com",
+      projectId: "rockpaperscissor-c9518",
+      storageBucket: "rockpaperscissor-c9518.appspot.com",
+      messagingSenderId: "198876199709",
+      appId: "1:198876199709:web:8336613acacb1dafe4bff4",
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth(app);
+    const user = auth.currentUser;
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        // ...
+      } else {
+        // User is signed out
+        // ...
+        window.location = "login.html";
+      }
+    });
+    logout.addEventListener("click", (e) => {
+      signOut(auth)
+        .then(() => {
+          // Sign-out successful.
+          alert("user loged out");
+        })
+        .catch((error) => {
+          // An error happened.
+          const errorCode = error.code;
+          const errorMessage = error.message;
+
+          alert(errorMessage);
+        });
+    });
+  </script>
 </html>

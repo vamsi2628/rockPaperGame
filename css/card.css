@@ -1,0 +1,83 @@
+.title1 {
+  position: relative;
+  color: wheat;
+}
+#msg {
+  position: relative;
+  color: wheat;
+  font-size: 20px;
+  padding: 10px 0px 10px 0px;
+  margin: 0px 30px 0px 30px;
+}
+.overall {
+  flex-grow: 2;
+  overflow: hidden;
+  display: flex;
+  color: wheat;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  gap: 5%;
+}
+
+.Score-Card {
+  width: 250px;
+  height: 100px;
+  perspective: 800px;
+}
+
+.Score-Card:hover > .card {
+  cursor: pointer;
+  transform: rotateY(180deg);
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transition: transform 1500ms;
+  transform-style: preserve-3d;
+}
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.front.user {
+  background-image: url("/images/user.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.front.comp {
+  background-image: url("/images/computer.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.card.comp {
+  margin-left: 40%;
+}
+.back {
+  background-color: #3a3a3a;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 410px) {
+  .card.comp {
+    margin-left: 0%;
+  }
+  .overall {
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+  }
+}
