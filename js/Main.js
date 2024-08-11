@@ -60,18 +60,3 @@ function handleClick(choice) {
   const userChoice = choice;
   playGame(userChoice);
 }
-
-// function modeChange() {
-//   const val = document.querySelector(".body");
-//   const mode = document.getElementById("mode").innerText;
-//   const value1 = document.getElementById("mode");
-//   if (mode == "🌚") {
-//     val.style.backgroundColor = "black";
-//     val.style.color = "white";
-//     value1.innerText = "🌞";
-//   } else {
-//     val.style.backgroundColor = "white";
-//     val.style.color = "black";
-//     value1.innerText = "🌚";
-//   }
-// }
